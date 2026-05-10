@@ -71,3 +71,7 @@ select * from projects where budget < (select max(budget) from projects);
 select * from employees where hire_date in(select max(hire_date) from employees where department='sales');
 -- 15. Find projects handled by employees earning more than 70000
 select * from projects where emp_id in(select emp_id from employees where salary>70000);
+-- 16. Find employees whose salary is not the maximum salary
+select * from employees where salary < (select max(salary) from employees);
+-- 17. Find employees managed by Sneha
+select * from employees where manager_id in(select emp_id from employees where emp_name='sneha'); 
