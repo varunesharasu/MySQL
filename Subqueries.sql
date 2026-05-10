@@ -59,3 +59,15 @@ select max(salary) from employees where salary < (select max(salary) from employ
 select * from employees where emp_id = (select emp_id from projects where budget=(select max(budget) from projects));
 -- 9. Employees not assigned to any project
 select * from employees where emp_id in (select emp_id from projects);
+-- 10. Find projects handled by employees hired before 2020
+select * from projects where emp_id in (select emp_id from employees where hire_date < '2020-01-01');
+-- 11. Find employees who are not in the IT department
+select * from employees where emp_id not in (select emp_id from employees where department='it');
+-- 12. Find employees whose salary is equal to Amit's salary
+select * from employees where salary = (select salary from employees where emp_name='amit');
+-- 13. Find projects with budget less than the highest budget
+select * from projects where budget < (select max(budget) from projects);
+-- 14. Find employees hired after the newest employee in Sales
+select * from employees where hire_date in(select max(hire_date) from employees where department='sales');
+-- 15. Find projects handled by employees earning more than 70000
+select * from projects where emp_id in(select emp_id from employees where salary>70000);
