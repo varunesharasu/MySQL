@@ -39,3 +39,9 @@ select e.ename, (e.sal/2), d.loc from emp e cross join dept d where e.job='manag
 select e.ename,e.empno,e.job,e.mgr,e.hiredate,e.sal,e.comm,e.deptno, d.dname, d.loc from emp e cross join dept d;
 -- 3. Display employee name, annual salary, joining date, and department information of all SALESMAN and ANALYST employees with alias names
 select e.ename,(e.sal*12) as annual_salary, e.hiredate, d.deptno, d.dname from emp e cross join dept d where job in ('sales','analyst'); 
+
+CREATE DATABASE joins;
+RENAME TABLE crossjoin.emp TO joins.emp;
+RENAME TABLE crossjoin.dept TO joins.dept;
+
+DROP DATABASE crossjoin;
