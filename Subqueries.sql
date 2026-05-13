@@ -75,3 +75,5 @@ select * from projects where emp_id in(select emp_id from employees where salary
 select * from employees where salary < (select max(salary) from employees);
 -- 17. Find employees managed by Sneha
 select * from employees where manager_id in(select emp_id from employees where emp_name='sneha'); 
+-- 18. Display the details of employees who are earning more than the average salary
+select * from employees where salary > (select avg(salary) from employees);
