@@ -13,3 +13,4 @@ select * from emp_view where sal>1000;
 create view  dept_view as select deptno,dname,loc from dept;
 -- 5. Create a view only for managers
 create view manager_view as select * from emp where job='manager';
+select * from manager_view;
