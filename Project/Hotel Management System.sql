@@ -22,3 +22,14 @@ CREATE TABLE Staff (
     department VARCHAR(50),
     salary DECIMAL(10,2)
 );
+
+CREATE TABLE Bookings (
+    booking_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    room_id INT,
+    check_in DATE,
+    check_out DATE,
+    total_days INT,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+    FOREIGN KEY (room_id) REFERENCES Rooms(room_id)
+);
