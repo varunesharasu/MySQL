@@ -38,3 +38,19 @@ INSERT INTO dept VALUES (10, 'ACCOUNTING', 'NEW YORK');
 INSERT INTO dept VALUES (20, 'RESEARCH', 'DALLAS');
 INSERT INTO dept VALUES (30, 'SALES', 'CHICAGO');
 INSERT INTO dept VALUES (40, 'OPERATIONS', 'BOSTON');
+
+select * from emp;
+
+select * from dept;
+
+-- Creating a Index
+create index ind_ename on emp(ename);
+-- Displaying the index table
+show index from emp;
+-- Drop the index table
+drop index ind_ename on emp;
+
+-- Inserting a value into the emp table, to check whether the inserted value is added to the index table or not.
+insert into emp values(0001,'Arun','salesman',7698,'1981-09-08', 1500, 0, 30);
+-- Checking the index
+select * from emp where ename='arun';
