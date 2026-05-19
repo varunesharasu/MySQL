@@ -110,3 +110,30 @@ VALUES
 (23,15000,'UPI','2026-05-20'),
 (24,9600,'Card','2026-05-21'),
 (25,20000,'Cash','2026-05-22');
+
+-- Bookings
+select * from bookings;
+-- Deleted dublicate values
+WITH cte AS (
+    SELECT 
+        booking_id,
+        ROW_NUMBER() OVER (
+            PARTITION BY 
+                customer_id,
+                room_id,
+                check_in,
+                check_out,
+                total_days
+            ORDER BY booking_id
+        ) AS rn
+    FROM bookings
+)
+
+DELETE FROM bookings
+WHERE booking_id IN (
+    SELECT booking_id
+    FROM cte
+    WHERE rn > 1
+);
+
+-- 
