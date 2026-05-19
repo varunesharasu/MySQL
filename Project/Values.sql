@@ -159,3 +159,26 @@ WHERE customer_id IN (
     FROM cte
     WHERE rn > 1
 );
+
+-- Rooms
+select * from rooms;
+-- delete dublicate values
+WITH cte AS (
+    SELECT 
+        room_id,
+        ROW_NUMBER() OVER (
+            PARTITION BY 
+                room_type,
+                price_per_day,
+                room_status
+            ORDER BY room_id
+        ) AS rn
+    FROM rooms
+)
+
+DELETE FROM rooms
+WHERE room_id IN (
+    SELECT room_id
+    FROM cte
+    WHERE rn > 1
+);
