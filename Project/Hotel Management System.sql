@@ -15,3 +15,10 @@ CREATE TABLE Rooms (
     price_per_day DECIMAL(10,2) CHECK(price_per_day > 0),
     room_status VARCHAR(20)
 );
+
+CREATE TABLE Staff (
+    staff_id INT PRIMARY KEY AUTO_INCREMENT,
+    staff_name VARCHAR(100),
+    department VARCHAR(50),
+    salary DECIMAL(10,2)
+);
