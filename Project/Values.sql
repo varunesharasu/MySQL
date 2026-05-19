@@ -136,4 +136,26 @@ WHERE booking_id IN (
     WHERE rn > 1
 );
 
--- 
+-- Customres
+select * from customers;
+-- delete duplicate values
+WITH cte AS (
+    SELECT 
+        customer_id,
+        ROW_NUMBER() OVER (
+            PARTITION BY 
+                first_name,
+                last_name,
+                phone,
+                city
+            ORDER BY customer_id
+        ) AS rn
+    FROM customers
+)
+
+DELETE FROM customers
+WHERE customer_id IN (
+    SELECT customer_id
+    FROM cte
+    WHERE rn > 1
+);
