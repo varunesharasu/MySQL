@@ -10,5 +10,8 @@ select * from(select ename, empno, sal, job, dense_rank() over (partition by dep
 -- 3. Find top 2 salaries of emp table
 SELECT * FROM ( SELECT empno,ename,sal,DENSE_RANK() OVER (ORDER BY sal DESC) AS rnk FROM emp) x WHERE rnk <= 2;
 -- 4. Find department-wise highest salary
-SELECT *
-FROM (ELECT empno,ename,deptno,sal,RANK() OVER (ORDER BY sal DESC) AS rnk FROM emp) x WHERE rnk = 1;
+SELECT * FROM (SELECT empno,ename,deptno,sal,RANK() OVER (ORDER BY sal DESC) AS rnk FROM emp) x WHERE rnk = 1;
+-- 5.Find the ROW_NUMBER() for employee table
+SELECT empno,ename,sal,ROW_NUMBER() OVER (ORDER BY sal DESC) AS row_num FROM emp;
+-- 6. Find the ROW_NUMBER() for each department
+SELECT empno,ename,deptno,sal,ROW_NUMBER() OVER (PARTITION BY deptno ORDER BY sal DESC) AS row_num FROM emp;
