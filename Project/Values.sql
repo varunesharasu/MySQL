@@ -205,3 +205,27 @@ WHERE staff_id IN (
     FROM cte
     WHERE rn > 1
 );
+
+-- Payments
+select * from payments;
+-- delete duplicate values
+WITH cte AS (
+    SELECT 
+        payment_id,
+        ROW_NUMBER() OVER (
+            PARTITION BY 
+                booking_id,
+                amount,
+                payment_method,
+                payment_date
+            ORDER BY payment_id
+        ) AS rn
+    FROM payments
+)
+
+DELETE FROM payments
+WHERE payment_id IN (
+    SELECT payment_id
+    FROM cte
+    WHERE rn > 1
+);
