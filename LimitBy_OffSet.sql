@@ -24,3 +24,11 @@ select distinct sal from emp order by sal asc limit 2;
 select distinct sal from emp order by sal desc limit 1 offset 2;
 -- 5. Find the 5th Highest Distinct Salary
 select distinct sal from emp order by sal desc limit 1 offset 4;
+-- 6. Display the employees ranked from 3rd to 6th highest salary.
+select sal from emp order by sal desc limit 4 offset 2;
+-- 7. Display the 2nd lowest distinct salary from the emp table
+select distinct sal from emp order by sal asc limit 1 offset 1;
+-- 8. Display First 3 Employees from Department 30
+select * from emp where deptno=30 order by ename asc limit 3;
+-- 9. Display Employees from 5th to 8th Lowest Salaries
+select * from emp order by sal asc limit 4 offset 4;
