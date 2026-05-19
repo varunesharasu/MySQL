@@ -33,3 +33,12 @@ CREATE TABLE Bookings (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     FOREIGN KEY (room_id) REFERENCES Rooms(room_id)
 );
+
+CREATE TABLE Payments (
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
+    booking_id INT,
+    amount DECIMAL(10,2),
+    payment_method VARCHAR(30),
+    payment_date DATE,
+    FOREIGN KEY (booking_id) REFERENCES Bookings(booking_id)
+);
