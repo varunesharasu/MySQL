@@ -182,3 +182,26 @@ WHERE room_id IN (
     FROM cte
     WHERE rn > 1
 );
+
+-- staff
+select * from staff;
+-- delete duplicate values
+WITH cte AS (
+    SELECT 
+        staff_id,
+        ROW_NUMBER() OVER (
+            PARTITION BY 
+                staff_name,
+                department,
+                salary
+            ORDER BY staff_id
+        ) AS rn
+    FROM staff
+)
+
+DELETE FROM staff
+WHERE staff_id IN (
+    SELECT staff_id
+    FROM cte
+    WHERE rn > 1
+);
