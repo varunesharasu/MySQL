@@ -110,3 +110,38 @@ ON c.customer_id=b.customer_id
 JOIN Payments p
 ON b.booking_id=p.booking_id
 GROUP BY c.first_name;
+
+-- 11. JOIN with HAVING
+-- Customers whose payment exceeds 15000.
+SELECT c.first_name,
+       SUM(p.amount) AS total_payment
+FROM Customers c
+JOIN Bookings b
+ON c.customer_id=b.customer_id
+JOIN Payments p
+ON b.booking_id=p.booking_id
+GROUP BY c.first_name
+HAVING SUM(p.amount) > 15000;
+
+-- 12. JOIN with LIMIT
+-- Top 5 highest payments.
+SELECT c.first_name,
+       p.amount
+FROM Customers c
+JOIN Bookings b
+ON c.customer_id=b.customer_id
+JOIN Payments p
+ON b.booking_id=p.booking_id
+ORDER BY p.amount DESC
+LIMIT 5;
+
+-- 13. JOIN with OFFSET
+SELECT c.first_name,
+       p.amount
+FROM Customers c
+JOIN Bookings b
+ON c.customer_id=b.customer_id
+JOIN Payments p
+ON b.booking_id=p.booking_id
+LIMIT 5 OFFSET 5;
+
