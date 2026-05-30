@@ -31,5 +31,3 @@ The goal of this repository is to strengthen SQL fundamentals and improve hands-
 - Window Functions
 - Database Normalization
 - Constraints & Relationships
-
----
