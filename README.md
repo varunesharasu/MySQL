@@ -33,16 +33,3 @@ The goal of this repository is to strengthen SQL fundamentals and improve hands-
 - Constraints & Relationships
 
 ---
-
-## 📂 Repository Structure
-
-```bash
-/mysql-practice
-│── basic-queries/
-│── joins/
-│── subqueries/
-│── aggregate-functions/
-│── database-design/
-│── interview-questions/
-│── sample-datasets/
-└── README.md
