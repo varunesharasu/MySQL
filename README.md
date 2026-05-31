@@ -11,7 +11,6 @@ This repository contains:
 - SQL problem-solving challenges
 - Joins, subqueries, aggregate functions, and window functions
 - Real-world database practice examples
-- Interview-oriented SQL questions
 
 The goal of this repository is to strengthen SQL fundamentals and improve hands-on database experience.
 
