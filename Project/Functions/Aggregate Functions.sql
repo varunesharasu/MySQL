@@ -65,3 +65,7 @@ SUM(amount) AS total_amount
 FROM Payments
 GROUP BY payment_method
 HAVING SUM(amount) > 20000;
+
+
+
+use hotel_management;
