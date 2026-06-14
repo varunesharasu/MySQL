@@ -92,3 +92,11 @@ select patient_id,first_name,last_name from patients where patient_id in (select
 30. Display every patient's first_name.
 Order the list by the length of each name and then by alphabetically.
 select first_name from patients order by length(first_name),first_name;
+
+31. Show the total amount of male patients and the total amount of female patients in the patients table.
+Display the two results in the same row.
+SELECT
+    (SELECT COUNT(*) FROM patients WHERE gender = 'M') AS male_count,
+    (SELECT COUNT(*) FROM patients WHERE gender = 'F') AS female_count;
+
+32. 
