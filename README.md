@@ -25,7 +25,6 @@ The goal of this repository is to strengthen SQL fundamentals and improve hands-
 - Subqueries
 - Views
 - Stored Procedures
-- Triggers
 - Indexes
 - Window Functions
 - Database Normalization
