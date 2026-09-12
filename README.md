@@ -1,6 +1,6 @@
 # MySQL Practice Queries
 
-A collection of MySQL practice queries, database design exercises, and SQL problem-solving tasks to improve database concepts and query-writing skill.
+A collection of MySQL practice queries, database design exercises, and SQL problem-solving tasks to improve database concepts and query-writing skills.
 
 ## 📌 About
 
